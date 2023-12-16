@@ -1,0 +1,109 @@
+{
+  "stores": [
+    {
+      "id": 0,
+      "name": "KFC",
+      "city": "Thessaloniki",
+      "photo": "https://angular.io/assets/images/tutorials/faa/bernard-hermant-CLKGGwIBTaY-unsplash.jpg",
+      "rating": 5,
+      "dishes": [
+        {
+          "id": 0,
+          "name": "Burger",
+          "price": 5
+        },
+        {
+          "id": 1,
+          "name": "Fries",
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Goody's",
+      "city": "Thessaloniki",
+      "photo": "https://angular.io/assets/images/tutorials/faa/brandon-griggs-wR11KBaB86U-unsplash.jpg",
+      "rating": 5,
+      "dishes": [
+        {
+          "id": 0,
+          "name": "Burger",
+          "price": 6
+        },
+        {
+          "id": 1,
+          "name": "Fries",
+          "price": 3
+        },
+        {
+          "id": 2,
+          "name": "Cola",
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Simple Burger",
+      "city": "Athens",
+      "photo": "https://angular.io/assets/images/tutorials/faa/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg",
+      "rating": 5,
+      "dishes": [
+        {
+          "id": 0,
+          "name": "Burger",
+          "price": 6
+        },
+        {
+          "id": 1,
+          "name": "Fries",
+          "price": 3
+        },
+        {
+          "id": 2,
+          "name": "Cola",
+          "price": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Mikro Parisi",
+      "city": "Thessaloniki",
+      "photo": "https://angular.io/assets/images/tutorials/faa/ian-macdonald-W8z6aiwfi1E-unsplash.jpg",
+      "rating": 5,
+      "dishes": [
+        {
+          "id": 0,
+          "name": "Pancakes",
+          "price": 5
+        },
+        {
+          "id": 1,
+          "name": "Crepes",
+          "price": 4
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "To agapimeno ths Ioannas",
+      "city": "Athens",
+      "photo": "https://angular.io/assets/images/tutorials/faa/krzysztof-hepner-978RAXoXnH4-unsplash.jpg",
+      "rating": 5,
+      "dishes": [
+        {
+          "id": 0,
+          "name": "Dish 1",
+          "price": 5
+        },
+        {
+          "id": 1,
+          "name": "Dish 2",
+          "price": 4
+        }
+      ]
+    }
+  ]
+}
