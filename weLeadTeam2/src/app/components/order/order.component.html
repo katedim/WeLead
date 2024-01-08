@@ -1,0 +1,29 @@
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <h2>Your order!</h2>
+    <div style="display: flex; justify-content: center;">
+        <ng-template *ngIf="hasLoaded; then orderBlock else notOrderBlock"></ng-template>
+        <ng-template #orderBlock>
+            <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                <div>
+                    <table>
+                        @for (order of orderData.orders[0].products; track $index) {
+                        <tr>
+                            <td>{{order?.name}}</td>
+                            <td>{{order?.price}}</td>
+                            <td><img [src]="order?.avatar" alt="{{ order?.name }} Avatar" width="50" height="50"></td>
+                        </tr>
+                        }
+                    </table>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary">
+                        <a routerLinkActive="active" class="nav-link" routerLink="checkout">Send Order: {{getTotal()}}</a>
+                    </button>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template #notOrderBlock>
+            <h1>Loading Order...</h1>
+        </ng-template>
+    </div>
+</div>

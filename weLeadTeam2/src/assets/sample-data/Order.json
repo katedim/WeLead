@@ -1,0 +1,26 @@
+{
+    "orders": [
+        {
+            "id": 1,
+            "storeName": "McDonald's",
+            "category": "FAST_FOOD",
+            "address": "Syntagma 15",
+            "products": [
+                {
+                    "id": "1",
+                    "name": "Big Mac",
+                    "category": "BURGERS",
+                    "price": 4.99,
+                    "avatar": "assets/images/burger.PNG"
+                },
+                {
+                    "id": "2",
+                    "name": "Crispy McBacon",
+                    "category": "BURGERS",
+                    "price": 3.99,
+                    "avatar": "assets/images/burger.PNG"
+                }
+            ]
+        }
+    ]
+}
