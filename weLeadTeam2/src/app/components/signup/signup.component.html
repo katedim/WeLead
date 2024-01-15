@@ -1,0 +1,37 @@
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-6">
+        <div class="card">   
+              <div class="text-center"> 
+                <p class="p"> Sign Up <br>  Please register! </p>    
+            </div>
+            <form>
+            <form>
+                <div class="mb-3">
+                    <label  style="color: white" for="exampleInputEmail1" class="form-label"> Full Name </label> <br>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                <div class="mb-3">
+                  <label style="color: white" for="exampleInputEmail1" class="form-label"> Email Address </label> <br>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label  style="color: white" for="exampleInputPassword1" class="form-label"> Password  </label><br>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                  </div>
+                <div class="mb-3">
+                  <label style="color: white" for="exampleInputPassword1" class="form-label"> Confirm Password </label> <br>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="button" class="btn btn-primary mb-2" (click)="onSubmit()">Sign up</button>
+                
+              </form>            
+              <a style="color: white;  margin-top: 10px;" routerLink="/login">already registered? please login</a>
+              </form>
+          </div>
+    </div>
+    </div>
+    
+</div>
+
