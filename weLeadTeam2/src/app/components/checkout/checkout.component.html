@@ -1,1 +1,44 @@
-<p>checkout works!</p>
+<div style="display: flex; justify-content: center;">
+    <table>
+        <tr>
+            <h1>Delivery Options</h1>
+            <div class="form-check" *ngFor="let delivery of deliveryArr">
+                <input class="form-check-input"  type="radio" name="delivery" value="{{delivery.value}}" (change)="onChangeDelivery($event)" required>
+                <label>{{delivery.value}}</label>
+            </div>
+        </tr><br>
+        <tr>
+            <h1>Selected Products</h1>
+        </tr><br>
+        <tr>
+            <h1>Payment Options</h1>
+            <div class="form-check" *ngFor="let payment of paymentArr">
+                <input class="form-check-input"  type="radio" name="payment" value="{{payment.value}}" (change)="onChangePayment($event)" required>
+                <label>{{payment.value}}</label>
+            </div>
+        </tr><br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orderInfoModal" (click)="sendOrder()" id="sendOrder" [disabled]="!isDeliveryAndPaymentSelected()">Send Order</button>
+    </table>
+</div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="orderInfoModal" tabindex="-1" aria-labelledby="orderInfoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="orderInfoModalLabel">Thank you!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div *ngIf="deliveryOption == 'Delivery'; then thenBlock else elseBlock"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<ng-template #thenBlock>Your order will be delivered to you at {{readyTime | date:"HH:mm"}}!</ng-template>
+<ng-template #elseBlock>Your order will be ready for pick up at {{readyTime | date:"HH:mm"}}!</ng-template>

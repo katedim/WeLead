@@ -16,6 +16,7 @@ export class OrderComponent {
   // orderData: Order[] = [];
   orderData: any;
   hasLoaded = false;
+  message = 'test';
 
   ngOnInit() {
     this.ordersService.getOrder()

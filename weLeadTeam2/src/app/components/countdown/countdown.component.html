@@ -1,0 +1,6 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+<div *ngIf="data">
+    {{data[0]?.orderTime | date:"HH:mm" }}
+    {{data[0]?.deliveryTime | date:"HH:mm" }}
+</div>
+</div>
