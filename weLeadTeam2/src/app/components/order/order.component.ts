@@ -3,6 +3,7 @@ import { OrderService } from '../../services/order.service';
 import { CommonModule } from '@angular/common';
 import { Order } from '../../interfaces/order';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CountdownService } from '../../services/countdown.service';
 
 @Component({
   selector: 'app-order',
@@ -13,21 +14,21 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class OrderComponent {
   ordersService = inject(OrderService);
-  // orderData: Order[] = [];
   orderData: any;
   hasLoaded = false;
   message = 'test';
+  service = inject(CountdownService);
 
   ngOnInit() {
     this.ordersService.getOrder()
       .subscribe({
         next: response => {
           this.orderData = response;
-          console.log(this.orderData);
           this.hasLoaded = true;
 
         }
       })
+
   }
 
   getTotal() {
@@ -36,6 +37,10 @@ export class OrderComponent {
      total+=value.price;
     })
     return total;
+  }
+
+  checkout() {
+    this.service.publishData({ productsInfo: this.orderData.orders[0].products });
   }
 
 }

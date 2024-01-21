@@ -9,6 +9,9 @@
         </tr><br>
         <tr>
             <h1>Selected Products</h1>
+            <div *ngFor="let product of productsInfo">
+              {{product.name}}
+            </div>
         </tr><br>
         <tr>
             <h1>Payment Options</h1>
@@ -23,7 +26,7 @@
 
   
   <!-- Modal -->
-  <div class="modal fade" id="orderInfoModal" tabindex="-1" aria-labelledby="orderInfoModalLabel" aria-hidden="true">
+  <div class="modal fade" id="orderInfoModal" tabindex="-1" aria-labelledby="orderInfoModalLabel" aria-hidden="true" (hidden.bs.modal)="routingCountdown()">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -33,12 +36,12 @@
         <div class="modal-body">
             <div *ngIf="deliveryOption == 'Delivery'; then thenBlock else elseBlock"></div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" (click)="routingCountdown()">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
 
-<ng-template #thenBlock>Your order will be delivered to you at {{readyTime | date:"HH:mm"}}!</ng-template>
-<ng-template #elseBlock>Your order will be ready for pick up at {{readyTime | date:"HH:mm"}}!</ng-template>
+<ng-template #thenBlock>Your order will be delivered to you at {{deliveryTime | date:"HH:mm"}}!</ng-template>
+<ng-template #elseBlock>Your order will be ready for pick up at {{deliveryTime | date:"HH:mm"}}!</ng-template>
