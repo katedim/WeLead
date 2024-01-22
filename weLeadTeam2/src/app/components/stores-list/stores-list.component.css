@@ -1,0 +1,18 @@
+
+.btn-custom-yellow-purple {
+    background-color: #ffc107; /* Yellow color */
+    border-color: #6f42c1; /* Purple color */
+    color: black; /* Black text color */
+    font-size: 1.5rem; /* Adjust font size for a larger button */
+    padding: 10px 20px; /* Increase padding for a larger button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box-shadow for popping effect */
+    transition: all 0.3s ease; /* Smooth transition for the popping effect */
+  }
+  .btn-custom-yellow-purple:hover {
+    background-color: #ffa000; /* Darker shade of yellow on hover */
+    border-color: #5e2d89; /* Darker shade of purple on hover */
+    color: black; /* Black text color on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase box-shadow on hover */
+    transform: scale(1.1); /* Slight scale-up for the popping effect */
+  }
+  

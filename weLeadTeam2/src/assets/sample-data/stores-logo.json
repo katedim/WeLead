@@ -1,0 +1,25 @@
+
+[
+    {
+        "id": 1,
+        "name": "McDonald's",
+        "avatar": "assets/images/msdonalts.png"
+       
+    },
+
+    {
+        "id": 2,
+        "name": "StreetWok",
+        "avatar": "assets/images/street_wok.jpeg"
+    },
+
+    {
+        "id": 3,
+        "name": "Nanou Donuts House",
+        "avatar": "assets/images/nanou.png"
+      
+    }
+]
+
+
+
