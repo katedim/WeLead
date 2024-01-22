@@ -16,9 +16,13 @@
                     </table>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-primary">
-                        <a routerLinkActive="active" class="nav-link" routerLink="checkout">Send Order: {{getTotal()}}</a>
+                    <!-- <button type="button" class="btn btn-primary" (click)="checkout()">
+                        <a routerLinkActive="active" class="nav-link" routerLink="checkout">Checkout: {{getTotal()}}</a>
+                    </button> -->
+                    <button type="button" class="btn btn-primary" (click)="checkout()" routerLink="checkout">
+                        Checkout: {{ getTotal() }}
                     </button>
+
                 </div>
             </div>
         </ng-template>
