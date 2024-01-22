@@ -1,0 +1,26 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 50vh; margin-top: 50px">
+    <div *ngIf="deliveryTime">
+      {{ orderTime | date:"HH:mm" }}
+      {{ deliveryTime | date:"HH:mm" }}
+  
+      <p class="mb-4 font-weight-bold text-uppercase">Order deliver in</p>
+      <div *ngIf="minutesLeft != 0; then thenBlock else elseBlock"></div>
+    </div>
+  
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <ng-template #thenBlock>
+        <p>{{ minutesLeft }} : {{ secondsLeft }} Time Left</p>
+        <div style="margin-top: 50px">
+            <img src="../assets/images/vehicle.png" alt="Bouncing Image" class="bouncing-image" width="200px" height="180px">
+        </div>
+      </ng-template>
+  
+      <ng-template #elseBlock>
+        <p>fai etoimo</p>
+        <img src="../assets/images/arrival.png" alt="" width="200px" height="150px">
+      </ng-template>
+
+    </div>
+      
+
+  </div>
