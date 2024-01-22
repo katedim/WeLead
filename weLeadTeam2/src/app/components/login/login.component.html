@@ -1,1 +1,36 @@
-<p>login works!</p>
+
+  <div class="container">
+    <div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="text-center"> 
+                <p class="p"> Login <br>  Please enter email & password! </p>
+            </div>    
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">                   
+                <div class="mb-3">
+                  <label   style="color: white" for="exampleInputEmail1" class="form-label" > Email_address </label> <br>
+                  <input  formControlName="Email_address" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                     <span class="text-danger" *ngIf="form.get('Email_address')?.hasError('required') && form.get('Email_address')?.touched">Required</span> 
+                </div>
+                <div class="mb-3">
+                  <label  style="color: white" for="exampleInputPassword1" class="form-label"> Password </label> <br>                 
+                  <input formControlName="Password" type="password" class="form-control" id="exampleInputPassword1">
+                  <span class="text-danger" *ngIf="form.get('Password')?.hasError('required') && form.get('Password')?.touched">Required</span>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label  style="color: white" class="form-check-label" for="flexCheckDefault">
+                    Remember me
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2"  > SUBMIT</button>
+              </form>
+              <div>             
+              <a style="color: white;  margin-top: 10px;"   routerLink="/signup" >New Account? Register!</a>   
+            </div> 
+                  </div>
+          </div>
+          </div>
+    </div>
+    
+

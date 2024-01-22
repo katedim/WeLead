@@ -11,9 +11,11 @@
     transform:translate(-50%, -50%); 
     background-color: rgb(20, 55, 39);
 } 
-
-.btn btn-primary{ 
-    padding: 50px;
+.btn { 
+    padding: 0px;
+    border-radius: 10%;
+    border-width: 1px;
+    border-color: rgb(208, 248, 49);
 
 }
 .text-center{
