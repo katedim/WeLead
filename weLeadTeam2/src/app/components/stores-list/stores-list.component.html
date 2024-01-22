@@ -1,0 +1,87 @@
+<!-- Here we have the message on the uper left corner of the page
+
+    {{storesList}}
+<h1> Hunger Time!<p>  Let's choose the store you love! </p> </h1>
+{{storesList.total}}
+
+<button class="btn btn-primary" (click)="getStoresList()"> Get all the Stores  </button>
+A try to insert a background picture
+  <div>
+      <img [src]= "../assets/images/delivery_truck.jpg" alt="">
+
+  </div>
+
+-->
+
+<!-- 
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+   
+    <h1>Feeling Hungry? <p> Always!</p>   
+    <p>Select your favourite store today!!! </p> </h1>
+    {{storesList.total}} 
+
+ <button class="btn btn-custom-yellow-purple btn-lg" (click)="getStoresList()">Get all the Stores</button>
+
+
+    @for(name of storesList.data; track $index){
+        <p> {{ storesList.name }} </p>
+        <p> {{ storesList.name }} </p>
+
+    } @empty {
+        <h2> No stores available!</h2>
+    }
+
+</div>
+
+
+-->
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+
+    <h1>Feeling Hungry? <p> Always!</p>
+        <p>Select your favourite store today!!! </p>
+    </h1>
+
+<p>  
+    <button class="btn btn-custom-yellow-purple btn-lg" (click)="getStoresList()">Get all the Stores</button>
+</p>
+
+    <div *ngIf="isclicked">
+<!--check an to storesList exei times kai trexoyme ola ta stores-->
+        <div *ngIf="storesList && storesList.length > 0">
+            <div *ngFor="let store of storesList; let i = index">
+
+
+<!-- check an to storesLogo exei times kai trexoume ola ta logos kai meta 
+crosscheck an simfonoun ta ids kai emfanizoun ta sosta monadika logo -->
+                <div class="card" style="width: 18rem;">
+                    <div *ngIf="storesLogo && storesLogo.length > 0">
+                        <div *ngFor="let logo of storesLogo; let i = index"> 
+                            <div *ngIf="store.id==logo.id">
+                                <img src="{{logo.avatar}}" class="card-img-top" width="260" height="190"  alt="...">
+                        
+                    </div>
+
+                    </div>
+                </div>
+                   <!-- <img src="..src/assets/images/msdonalts.png" class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                      <h5 class="card-title"> {{store.name}} </h5>
+                      <p class="card-text"> In case you're craving for {{store.category}}</p>
+                      <p class="card-text"> And our address for pick up: {{store.address}}</p>
+                      <a href="#" id="orderButton" class="btn btn-primary"> ORDER </a>
+                      <!-- <a href="#" class="btn btn-primary"> ORDER </a>  --> 
+                    </div>
+                </div>
+                
+                <!-- Add more information as needed -->
+            </div>
+        </div>
+        <div *ngIf="!storesList || storesList.length === 0">
+            <h2>No stores available!</h2>
+        </div>
+    </div>
+
+   <!-- GIF for error 404!  
+     <iframe src="https://giphy.com/embed/OZeWzZalgU5XNyHAqh" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+</div>
