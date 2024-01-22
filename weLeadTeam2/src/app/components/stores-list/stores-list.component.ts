@@ -2,7 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { StoresListService } from '../../services/stores-list.service';
 import { CommonModule } from '@angular/common';
 
-import { Component } from '@angular/core';
 
 
 @Component({
