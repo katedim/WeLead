@@ -5,16 +5,14 @@ import { Injectable, inject } from '@angular/core';
   providedIn: 'root'
 })
 export class UsersService {
-  private http = inject(HttpClient);
-  private userUrl="../assets/sample-data/user.json";
+  http = inject(HttpClient);
+  private endpointUrl ="../assets/sample-data/user.json";
 
   
 
-  constructor () { }
+  //otan to zhthsei to component
   getUsers() {
-    return this.http.get(this.userUrl);
-  }
-  // addUser(user:any){
-  //   return this.http.post(this.userUrl, user);
-  // }
+    return this.http.get(this.endpointUrl);
+  }// to balame se mia dikia mas methodo // h methodos kanei return ta dedomena// thn kalw mesa apo ton constructor toy login.ts
+ 
 }

@@ -1,40 +1,54 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { UsersService } from '../../services/users.service';
+import { Component, OnInit } from '@angular/core';
+import {RouterLink, RouterLinkActive } from '@angular/router';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule,RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterLink, RouterLinkActive,  ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 
 })
 
-export class LoginComponent implements OnInit{
-  usersService = inject (UsersService);
+export class LoginComponent implements OnInit {
+  form!: FormGroup
   
   ngOnInit(){
-    console.log('testlogin1');
-    this.usersService.getUsers().subscribe({
-      next:response=> {console.log (response)}
-    })
-    
+    this.setFormValues();
+    // console.log(this.form);
+    console.log("test2");
+   
   }
-  onSubmit() {
 
-    // this.usersService.getUsers().subscribe({
-      // next:response=> {console.log (response)}
-    //})
-    // na kanei filter gia na epistrefei ena user me ta antistoixa paidia
-
-
-  // this.userService.addUser(this.user).subscribe(() => {
-  //   console.log('User added successfully!');
-  // });
-  console.log('testlogin');
-}
+  setFormValues() {
+    this.form = new FormGroup({
+      Email_address: new FormControl("",Validators.required), 
+      Password: new FormControl("",Validators.required)
+    });
 
 }
+  onSubmit(){
+    if(this.form.valid){
+      console.log("valid");
+    }else{
+      this.form.markAllAsTouched();
+      console.log("invalid");
+      
+      
+
+    }
+    
+    
+ }
+ 
+}
+
+
+
+
+
+  

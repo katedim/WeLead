@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject , OnInit} from '@angular/core';
 import { UsersService } from '../../services/users.service';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import {FormGroup , FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -12,25 +13,54 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent implements OnInit{
+
+
   usersService = inject (UsersService);
-//   user ={username:'',password:''};
+  public signupForm!: FormGroup;
+  constructor (private formBuilder: FormBuilder , private http: HttpClient , private router:Router){}
+   
 
-//   constructor(private userServise: UsersService){}
 ngOnInit(){
-  console.log('test');
-  this.usersService.getUsers().subscribe({
-    next:response=> {console.log (response)}
-  })
+
+this.signupForm = this.formBuilder.group({
+  fullname:[""],
+  email:[""],
+  password:[""],
+
+})
 }
-  onSubmit() {
-    // this.userService.addUser(this.user).subscribe(() => {
-    //   console.log('User added successfully!');
-    // });
+  signUp(){
+  this.http.post<any>('../assets/users.json',this.signupForm.value).subscribe( res=>{
+    alert("SignUp Successfull");
+    this.signupForm.reset();
+    this.router.navigate(['login']);
+
+  }, err=>{
+    alert("Something went wrong")
+  });
   
-    console.log('test2');
-  
-  }
+ }
+
 }
 
 
 
+
+// function signUp() {
+  // throw new Error('Function not implemented.');
+// }
+//   // console.log('test');
+
+//   this.usersService.getUsers().subscribe({
+//     next:response=> {console.log (response)}
+//   })
+// }
+//   onSubmit() {
+//     // this.userService.addUser(this.user).subscribe(() => {
+//     //   console.log('User added successfully!');
+//     // });
+  
+//     console.log('test2');
+  
+//   }
+// }
