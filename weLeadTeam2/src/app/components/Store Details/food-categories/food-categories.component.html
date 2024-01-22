@@ -1,0 +1,134 @@
+
+<app-button-clicker-counter></app-button-clicker-counter>
+
+
+
+<img src="../assets/images/Bg.jpg" class="img-fluid" alt="...">
+<div class="container"><p></p></div>
+
+<div class="container">
+<app-search></app-search>
+</div>
+
+<div class="container">
+  <div *ngFor="let product of categories?.products; let i = index">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <!-- <img src="..." class="img-fluid rounded-start" alt="..."> -->
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.price }}</p>
+        <p class="card-text"><small class="text-muted">{{ product.category }}</small></p>
+       <app-button-clicker></app-button-clicker>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ul ng-repeat="(key, value) in players | groupBy: 'team'">
+  Group name: {{ key }}
+  <li ng-repeat="player in value">
+    player: {{ player.name }} 
+  </li>
+</ul> -->
+
+
+<!-- <div class="group" *ngFor="let innerArr of products | group: 'category' | as ">
+
+</div> -->
+
+<!-- food-categories.component.html -->
+<!-- <div *ngFor="let item of categories | group :'category'">
+  <h2>{{ item.key }}</h2>
+  <app-food-categories [title]="item.key"></app-food-categories>
+</div> -->
+
+<!-- <div *ngFor="let item of products">
+  <h3>{{ item.name }}</h3>
+  <p>{{ item.description }}</p>
+  <span>{{ item.price | currency }}</span>
+</div> -->
+
+
+<!-- food-categories.component.html -->
+<!-- <div *ngFor="let category of categories">
+  <h2>{{ category.category }}</h2>
+  <div *ngFor="let product of category.products">
+    <h3>{{ product.name }}</h3>
+    <p>Price: {{ product.price }}</p>
+  </div>
+</div> -->
+
+<!-- <ul ng-repeat="(key,value) in "></ul> -->
+
+
+<!-- <div *ngFor="let category of uniqueCategories">
+    <h2>{{ category }}</h2>
+    <div *ngFor="let product of categories?.products">
+      <div *ngIf="product.category === category">
+        <p>{{ product.name }} - ${{ product.price }}</p>
+        <ng-container *ngIf="uniqueCategories.indexOf(category) !== -1; else continueLoop"></ng-container>
+      </div>
+      <ng-template #continueLoop></ng-template>
+    </div>
+  </div> -->  
+<!-- <p>{{uniqueCategories}}</p>   -->
+<!-- <p>{{uniquePrice}}</p> -->
+
+<!-- <p>{{categories}}</p>
+<p>{{categories.products[0].name}}</p> -->
+
+<!-- @for (product of categories.products; track $index) {
+
+<p>{{categories.products}}</p>
+} -->
+<!-- 
+<div *ngFor="let product of categories.products; let i = index">
+  <h4>{{ product.category }}</h4>
+  <p>Name: {{ product.name }}</p>
+  <p>Price: ${{ product.price }}</p>
+</div> -->
+
+<!-- <div class="container">
+  <label for="filter">Search</label>
+<input id="filter" type="text" #filterValue>
+<button (click)="filterBy(filterValue)">Filter</button>
+</div> -->
