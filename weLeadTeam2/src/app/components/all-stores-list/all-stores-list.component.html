@@ -2,8 +2,8 @@
 
 <div class="container"> </div>
 
-<div *ngIf="allStoresList && allStoresList.length > 0">
-    <div *ngFor="let store of allStoresList; let i = index">
+<div *ngIf="storesByCategory && storesByCategory.length > 0">
+    <div *ngFor="let store of storesByCategory; let i = index">
 
 
 
@@ -29,14 +29,23 @@
 
     </div>
 </div>
-<div *ngIf="!allStoresList || allStoresList.length === 0">
+<div *ngIf="!storesByCategory || storesByCategory.length === 0">
     <h2>No stores available!</h2>
 </div>
 
 -->
-<app-categories></app-categories>
-<div *ngIf="allStoresList && allStoresList.length > 0" class="row">
-    <div *ngFor="let store of allStoresList; let i = index" class="col-md-4">
+
+<table class="table">
+    <thead>
+        <tr >
+            <button scope="col" *ngFor="let category of nameCategories" (click)="updateByCategory(category)">
+                {{category}}
+            </button>
+        </tr>
+    </thead>
+</table>
+<div *ngIf="storesByCategory && storesByCategory.length > 0" class="row">
+    <div *ngFor="let store of storesByCategory; let i = index" class="col-md-4">
         <div class="card mb-4">
             <div *ngIf="storesLogo && storesLogo.length > 0">
                 <div *ngFor="let logo of storesLogo; let i = index">
@@ -58,6 +67,6 @@
 </div>
 
 
-<div *ngIf="!allStoresList || allStoresList.length === 0">
+<div *ngIf="!storesByCategory || storesByCategory.length === 0">
     <h2>No stores available!</h2>
 </div>

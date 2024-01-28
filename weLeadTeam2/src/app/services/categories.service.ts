@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CategoriesService {
 
   http = inject(HttpClient);
-  private endpointUrl ="../assets/sample-data/stores.json";
+  private endpointUrl ="../assets/sample-data/most_famous_stores_in_general.json";
 
   constructor() { }
 
