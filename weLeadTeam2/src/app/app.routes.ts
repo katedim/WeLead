@@ -19,7 +19,7 @@ export const routes: Routes = [
   { path: 'stores-list', component: StoresListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  {path: 'categories' , component: CategoriesComponent}
+  { path: 'categories' , component: CategoriesComponent},
   { path: 'all-stores', component: AllStoresListComponent},
   { path: '**', component: Error404Component }
 ];
