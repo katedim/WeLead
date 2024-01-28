@@ -1,54 +1,66 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import {RouterLink, RouterLinkActive } from '@angular/router';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { Route, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { FormControl, FormGroup, FormBuilder, ReactiveFormsModule, Validators, FormsModule, FormControlName } from '@angular/forms';
+import { UsersService } from '../../services/users.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive,  ReactiveFormsModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive, ReactiveFormsModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 
 })
 
 export class LoginComponent implements OnInit {
-  form!: FormGroup
-  
-  ngOnInit(){
-    this.setFormValues();
-    // console.log(this.form);
-    console.log("test2");
-   
-  }
 
-  setFormValues() {
-    this.form = new FormGroup({
-      Email_address: new FormControl("",Validators.required), 
-      Password: new FormControl("",Validators.required)
+  usersService = inject(UsersService);
+
+  loginform!: FormGroup
+
+  userfound = false;
+
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) { }
+
+  ngOnInit() {
+
+    this.loginform = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
 
-}
-  onSubmit(){
-    if(this.form.valid){
-      console.log("valid");
-    }else{
-      this.form.markAllAsTouched();
-      console.log("invalid");
+  }
+
+  login() {
+    console.log(59)
+
+    if (this.loginform.valid) {
+      console.log(this.loginform.value)    
+      this.usersService.GetUser().subscribe(res => {
+        const user = res.users.find((a: any) => {
+          if (a.email === this.loginform.value.email && a.password === this.loginform.value.password) {
+            console.log("ok");
+            this.userfound = true;
+            this.router.navigate(["/order"]);
+            return true;
+          }
+          return false;
+        });
       
-      
+        if (!this.userfound) {
+          window.alert("User not found");
+        }
+      });     
 
-    }
-    
-    
- }
- 
+    }   
+
+  }
+
+
 }
 
 
-
-
-
-  

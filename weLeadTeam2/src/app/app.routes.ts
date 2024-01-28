@@ -6,6 +6,7 @@ import { CountdownComponent } from './components/countdown/countdown.component';
 import { StoresListComponent } from './components/stores-list/stores-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 export const routes: Routes = [
   { path: 'order', component: OrderComponent },
@@ -14,5 +15,7 @@ export const routes: Routes = [
   { path: 'countdown', component: CountdownComponent },
   { path: 'stores-list', component: StoresListComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent }
+  { path: 'signup', component: SignupComponent },
+  {path: 'categories' , component: CategoriesComponent}
+  
 ];

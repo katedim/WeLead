@@ -1,66 +1,62 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject , OnInit} from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import {FormGroup , FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, ReactiveFormsModule, Validators, FormControl, FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterLink, RouterLinkActive, ReactiveFormsModule, FormsModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
-export class SignupComponent implements OnInit{
+export class SignupComponent implements OnInit {
+  userData :any;
 
+  usersService = inject(UsersService);
+  signupForm !: FormGroup
 
-  usersService = inject (UsersService);
-  public signupForm!: FormGroup;
-  constructor (private formBuilder: FormBuilder , private http: HttpClient , private router:Router){}
-   
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) { }
 
-ngOnInit(){
+  ngOnInit() {
 
-this.signupForm = this.formBuilder.group({
-  fullname:[""],
-  email:[""],
-  password:[""],
+    this.signupForm = this.formBuilder.group({
+      fullname: ['', Validators.required] ,
+      password: ['', Validators.required],
+      email: ['', {validators:[Validators.required,Validators.email]}]
 
-})
-}
+    });
+
+  }
+
   signUp(){
-  this.http.post<any>('../assets/users.json',this.signupForm.value).subscribe( res=>{
-    alert("SignUp Successfull");
-    this.signupForm.reset();
-    this.router.navigate(['login']);
+   
+    if (this.signupForm.valid) {
+      this.userData={"fullname":this.signupForm.value.fullname,"password":this.signupForm.value.password, "email":this.signupForm.value.email }
+      console.log(this.signupForm.value) 
+      this.usersService.PostUser(this.userData).subscribe((res: any) => {
+        alert("SignUp Successfull");
+        this.signupForm.reset();
+      
+       
+        this.router.navigate(['/login']);
 
-  }, err=>{
-    alert("Something went wrong")
-  });
-  
- }
+      }, (err: any) => {
+        alert("Something went wrong")
+      });
 
+      if (this.signupForm.valid) {
+        console.log("valid");
+      } else {
+        this.signupForm.markAllAsTouched();
+        console.log("invalid");
+
+      }
+      console.log(this.signupForm);
+    }
+
+  }
 }
-
-
-
-
-// function signUp() {
-  // throw new Error('Function not implemented.');
-// }
-//   // console.log('test');
-
-//   this.usersService.getUsers().subscribe({
-//     next:response=> {console.log (response)}
-//   })
-// }
-//   onSubmit() {
-//     // this.userService.addUser(this.user).subscribe(() => {
-//     //   console.log('User added successfully!');
-//     // });
-  
-//     console.log('test2');
-  
-//   }
-// }
