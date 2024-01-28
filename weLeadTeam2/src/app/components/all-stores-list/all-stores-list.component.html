@@ -1,0 +1,63 @@
+<!-- 
+
+<div class="container"> </div>
+
+<div *ngIf="allStoresList && allStoresList.length > 0">
+    <div *ngFor="let store of allStoresList; let i = index">
+
+
+
+        <div class="card" style="width: 18rem;">
+            <div *ngIf="storesLogo && storesLogo.length > 0">
+                <div *ngFor="let logo of storesLogo; let i = index">
+                    <div *ngIf="store.id==logo.id">
+                        <img src="{{logo.avatar}}" class="card-img-top" width="260" height="190" alt="...">
+
+                    </div>
+
+                </div>
+            </div>
+          
+            <div class="card-body">
+                <h5 class="card-title"> {{store.name}} </h5>
+                <p class="card-text"> In case you're craving for {{store.category}}</p>
+                <p class="card-text"> And our address for pick up: {{store.address}}</p>
+                <a href="#" id="orderButton" class="btn btn-primary"> ORDER </a>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+<div *ngIf="!allStoresList || allStoresList.length === 0">
+    <h2>No stores available!</h2>
+</div>
+
+-->
+
+<div *ngIf="allStoresList && allStoresList.length > 0" class="row">
+    <div *ngFor="let store of allStoresList; let i = index" class="col-md-4">
+        <div class="card mb-4">
+            <div *ngIf="storesLogo && storesLogo.length > 0">
+                <div *ngFor="let logo of storesLogo; let i = index">
+                    <div *ngIf="store.id==logo.id">
+                        <img src="{{logo.avatar}}" class="card-img-top" alt="...">
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{store.name}}</h5>
+                <p class="card-text">In case you're craving for {{store.category}}</p>
+                <p class="card-text">Our address for pick up: {{store.address}}</p>
+               
+                <div *ngIf="store?.open">  <button routerLink="/food-categories" id="orderButton" class="btn btn-primary">Order here! </button> </div>
+                <div *ngIf="!store?.open">  <button type="button" class="btn btn-danger" disabled> Sorry we're closed :(  </button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="!allStoresList || allStoresList.length === 0">
+    <h2>No stores available!</h2>
+</div>

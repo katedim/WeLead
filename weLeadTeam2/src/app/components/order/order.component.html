@@ -1,33 +1,40 @@
-<div style="display: flex; flex-direction: column; align-items: center;">
-    <h2>Your order!</h2>
-    <div style="display: flex; justify-content: center;">
-        <ng-template *ngIf="hasLoaded; then orderBlock else notOrderBlock"></ng-template>
-        <ng-template #orderBlock>
-            <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                <div>
-                    <table>
-                        @for (order of orderData.orders[0].products; track $index) {
-                        <tr>
-                            <td>{{order?.name}}</td>
-                            <td>{{order?.price}}</td>
-                            <td><img [src]="order?.avatar" alt="{{ order?.name }} Avatar" width="50" height="50"></td>
-                        </tr>
-                        }
-                    </table>
-                </div>
-                <div>
-                    <!-- <button type="button" class="btn btn-primary" (click)="checkout()">
-                        <a routerLinkActive="active" class="nav-link" routerLink="checkout">Checkout: {{getTotal()}}</a>
-                    </button> -->
-                    <button type="button" class="btn btn-primary" (click)="checkout()" routerLink="checkout">
-                        Checkout: {{ getTotal() }}
-                    </button>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2 class="text-center">Your Order!</h2>
 
-                </div>
-            </div>
-        </ng-template>
-        <ng-template #notOrderBlock>
-            <h1>Loading Order...</h1>
-        </ng-template>
+      <ng-template *ngIf="hasLoaded; then orderBlock else notOrderBlock"></ng-template>
+
+      <ng-template #orderBlock>
+        <div class="text-center">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Avatar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of orderData.orders[0].products; let i = index">
+                <td>{{ order?.name }}</td>
+                <td>{{ order?.price }}</td>
+                <td><img [src]="order?.avatar" alt="{{ order?.name }} Avatar" class="img-fluid" width="50" height="50"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="mt-3 d-flex justify-content-center">
+            <button type="button" class="btn btn-primary" (click)="checkout()" routerLink="checkout">
+              Checkout: {{ getTotal() }}
+            </button>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #notOrderBlock>
+        <h1 class="text-center">Loading Order...</h1>
+      </ng-template>
     </div>
+  </div>
 </div>
