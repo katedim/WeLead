@@ -18,18 +18,17 @@ export class CountdownComponent {
   orderTime: any;
   deliveryTime: any;
   redirectTime: any;
-  
+
   secondsLeft: number = 0;
   interval: any;
 
   minutesLeft: number = 0;
   showingMin?: number;
-  
+
   interval2: any;
+  interval3: any;
 
   differenceInMilliseconds?: number;
-
-  isImageVisible = true;
 
   ngOnInit() {
 
@@ -46,33 +45,50 @@ export class CountdownComponent {
     this.minutesLeft = Math.floor(this.differenceInMilliseconds / (1000 * 60));
     this.secondsLeft = Math.floor((this.differenceInMilliseconds % (1000 * 60)) / 1000);
 
-    console.log(this.minutesLeft , ":", this.secondsLeft);
+    console.log(this.minutesLeft, ":", this.secondsLeft);
 
 
     // only for testing!!! remove it later //
-    this.minutesLeft =1;
-    this.secondsLeft =1;
+    // this.minutesLeft =2;
+    // this.secondsLeft = 0;
+    // only for testing end
+
+    // this.showingMin = this.minutesLeft - 1;
+
+    console.log(this.secondsLeft);
+    console.log(this.minutesLeft);
 
     this.interval = setInterval(() => {
-      if(this.secondsLeft > 0) {
+      if (this.secondsLeft > 0) {
         this.secondsLeft--;
-      } else if (this.minutesLeft > 0){
+      } else if (this.minutesLeft > 0) {
         this.secondsLeft = 59;
       }
       else {
         this.secondsLeft = 0;
       }
-    },1000)
-
-
-    this.interval2 = setInterval(() => {
-      if(this.minutesLeft > 0) {
-        this.minutesLeft--;
-        // this.showingMin = this.minutesLeft -1;
-      } else {
-        this.minutesLeft = 0;
+      if (this.minutesLeft < 0) {
+        console.log(71);
+        console.log('clear 1');
+        clearInterval(this.interval);
       }
-    },60000)
+    }, 1000)
+
+
+    this.interval3 = setTimeout(() => {
+      console.log(this.minutesLeft, '73');
+      this.minutesLeft = this.minutesLeft - 1;
+      this.interval2 = setInterval(() => {
+        if (this.minutesLeft >= 0) {
+          this.minutesLeft--;
+          this.showingMin = this.minutesLeft - 1;
+        } else {
+          this.minutesLeft = -1;
+          console.log('clear 2');
+          clearInterval(this.interval2);
+        }
+      }, 60000)
+    }, (this.secondsLeft + 1 ) * 1000);
   }
 
 

@@ -7,6 +7,8 @@ import { StoresListComponent } from './components/stores-list/stores-list.compon
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AllStoresListComponent } from './components/all-stores-list/all-stores-list.component';
+import { Error404Component } from './components/error-404/error-404.component';
+
 
 export const routes: Routes = [
   { path: 'order', component: OrderComponent },
@@ -17,4 +19,5 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'all-stores', component: AllStoresListComponent},
+  { path: '**', component: Error404Component }
 ];
