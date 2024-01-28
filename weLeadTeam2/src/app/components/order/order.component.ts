@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { Order } from '../../interfaces/order';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CountdownService } from '../../services/countdown.service';
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
-  selector: 'app-order',
-  standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
-  templateUrl: './order.component.html',
-  styleUrl: './order.component.css'
+    selector: 'app-order',
+    standalone: true,
+    templateUrl: './order.component.html',
+    styleUrl: './order.component.css',
+    imports: [CommonModule, RouterLink, RouterLinkActive, HeaderComponent]
 })
 export class OrderComponent {
   ordersService = inject(OrderService);

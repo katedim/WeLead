@@ -6,6 +6,7 @@ import { CountdownComponent } from './components/countdown/countdown.component';
 import { StoresListComponent } from './components/stores-list/stores-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { Error404Component } from './components/error-404/error-404.component';
 
 export const routes: Routes = [
   { path: 'order', component: OrderComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
   { path: 'countdown', component: CountdownComponent },
   { path: 'stores-list', component: StoresListComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent }
+  { path: 'signup', component: SignupComponent },
+  { path: '**', component: Error404Component }
 ];
