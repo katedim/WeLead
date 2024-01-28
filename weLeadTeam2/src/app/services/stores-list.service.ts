@@ -9,21 +9,27 @@ export class StoresListService {
   private http = inject(HttpClient);
 
   private endpointUrl = "../assets/sample-data/stores.json";
-  private endpointUrlLogo = "../assets/sample-data/stores-logo.json";
+  private endpointUrlLogo = "../assets/sample-data/most_famous_stores_in_general-logos.json";
+  private endpointAllUrls = "../assets/sample-data/most_famous_stores_in_general.json ";
 
 
-constructor( ) { }
+  constructor() { }
 
- getStoresList(){
+  getStoresList() {
     //return this.http.get<StoresList[]>(this.endpointUrl);
 
     return this.http.get(this.endpointUrl);
 
-}
+  }
 
+  getAllStoresList() {
 
-getStoresLogo(){
+    return this.http.get(this.endpointAllUrls);
 
-  return this.http.get(this.endpointUrlLogo);
-}
+  }
+
+  getStoresLogo() {
+
+    return this.http.get(this.endpointUrlLogo);
+  }
 }
