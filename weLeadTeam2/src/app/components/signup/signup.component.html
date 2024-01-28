@@ -3,30 +3,30 @@
   <form [formGroup]="signupForm" (ngSubmit)="signUp()">
     <p class="p">Please register! </p>
     <div class="mb-3">
-      <label style="color: white" for="exampleInputEmail1" class="form-label"> Full Name </label> <br>
+      <label style="color: black" for="exampleInputEmail1" class="form-label"> Full Name </label> <br>
       <input placeholder="e.g. User User" formControlName="fullname" type="text" class="form-control"
         id="exampleInputEmail1" aria-describedby="emailHelp">
         <span class="text-danger" *ngIf="signupForm.get('fullname')?.hasError('required') && signupForm.get('fullname')?.touched">Required</span> 
     </div>
     <div class="mb-3">
-      <label style="color: white" for="exampleInputEmail1" class="form-label"> Email Address </label> <br>
+      <label style="color: black" for="exampleInputEmail1" class="form-label"> Email Address </label> <br>
       <input placeholder="e.g. email@email.com" formControlName="email" type="email" class="form-control"
         id="exampleInputEmail1" aria-describedby="emailHelp">
         <span class="text-danger" *ngIf="signupForm.get('email')?.hasError('required') && signupForm.get('email')?.touched " >Required</span>
         <span class="text-danger" *ngIf="signupForm.get('email')?.hasError('email') && signupForm.get('email')?.touched " >Not valid</span>
     </div>
     <div class="mb-3">
-      <label style="color: white" for="exampleInputPassword1" class="form-label"> Password </label><br>
+      <label style="color: black" for="exampleInputPassword1" class="form-label"> Password </label><br>
       <input placeholder="e.g. 123Abc!" formControlName="password" type="password" class="form-control"
         id="exampleInputPassword1">
         <span class="text-danger" *ngIf="signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched">Required</span>
     </div>
     <!-- <div class="mb-3">
-      <label style="color: white" for="exampleInputPassword1" class="form-label"> Confirm Password </label> <br>
+      <label style="color: black" for="exampleInputPassword1" class="form-label"> Confirm Password </label> <br>
       <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
     </div> -->
     <button type="submit" class="btn btn-primary mb-2 ">Sign up</button>
    
   </form>
-  <a style="color: white;  margin-top: 10px;" routerLink="/login">already registered? please login</a>
+  <a style="color: black;  margin-top: 10px;" routerLink="/login">already registered? please login</a>
   </div>

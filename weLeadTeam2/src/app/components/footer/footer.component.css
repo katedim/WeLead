@@ -32,7 +32,9 @@ body {
 }
 
 .footer {
+  /* background-color: #006400; */
   background-color: #006400;
+  
   color: #fff;
   text-align: center;
   padding: 10px 0;

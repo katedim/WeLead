@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="main-container" style="background-image: url('../assets/images/countdownBackground.jpg'); ">
 
   <div style="display: flex; justify-content: center; align-items: center; height: 50vh; margin-top: 50px">
     <div *ngIf="deliveryTime">
@@ -21,14 +21,13 @@
       </div>
 
         <div style="margin-top: 50px ; margin-bottom: 100px">
-          <img src="../assets/images/delivery_truck.jpg" alt="Bouncing Image" class="bouncing-image" width="200px"
+          <img src="../assets/images/delivery_truck.jpg" alt="Bouncing Image" class="bouncing-image ; rounded-circle" width="200px"
             height="180px">
         </div>
       </ng-template>
 
       <ng-template #elseBlock>
-        <p>fai etoimo</p>
-        <img src="../assets/images/arrival.png" alt="" width="200px" height="150px">
+        <img src="../assets/images/omadara.png" alt="" width="250px" height="300px">
       </ng-template>
     </div>
   </div>

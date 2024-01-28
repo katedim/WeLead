@@ -47,6 +47,8 @@
   align-items: center;
   margin-bottom: 30px; 
   height: 50vh;
+  background: url ('../assets/images/countdownBackground.jpg');
+
 }
 
 .delivery-info {
@@ -55,3 +57,5 @@
   align-items: center;
   background-color: #ffc107;
 }
+
+

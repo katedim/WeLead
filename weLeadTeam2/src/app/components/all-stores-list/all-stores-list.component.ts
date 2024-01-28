@@ -2,13 +2,14 @@ import { Component, OnInit, inject } from '@angular/core';
 import { StoresListService } from '../../services/stores-list.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink , RouterLinkActive } from '@angular/router';
+import { CategoriesComponent } from "../../categories/categories.component";
 
 @Component({
-  selector: 'app-all-stores-list',
-  standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
-  templateUrl: './all-stores-list.component.html',
-  styleUrl: './all-stores-list.component.css'
+    selector: 'app-all-stores-list',
+    standalone: true,
+    templateUrl: './all-stores-list.component.html',
+    styleUrl: './all-stores-list.component.css',
+    imports: [CommonModule, RouterLink, RouterLinkActive, CategoriesComponent]
 })
 export class AllStoresListComponent  implements OnInit {
 

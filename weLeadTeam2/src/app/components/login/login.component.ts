@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
           if (a.email === this.loginform.value.email && a.password === this.loginform.value.password) {
             console.log("ok");
             this.userfound = true;
-            this.router.navigate(["/order"]);
+            this.router.navigate(["/all-stores"]);
             return true;
           }
           return false;

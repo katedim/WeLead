@@ -56,7 +56,7 @@ export class CheckoutComponent {
     this.confirm = true;
     this.orderTime = new Date();
     this.deliveryTime = new Date();
-    this.deliveryTime.setTime(this.orderTime.getTime() + (2 * 60 * 1000));
+    this.deliveryTime.setTime(this.orderTime.getTime() + (30 * 60 * 1000));
      
     this.service.publishData({ id: 48 });
 
