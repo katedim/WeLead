@@ -31,6 +31,8 @@ export class StoresListComponent implements OnInit {
          console.log(response) }
     });
 
+
+    
     this.isclicked = true;
   }
 
