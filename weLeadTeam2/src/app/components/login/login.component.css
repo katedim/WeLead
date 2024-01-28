@@ -24,8 +24,9 @@
 }
 
 .mb-3{
-    padding: 3px;
-    text-align: center;
+    padding: 20px;
+
+    /* text-align: center; */
 
 }
 .form-check{
@@ -33,9 +34,18 @@
 }
 .p{
     
-    padding-bottom: 5%;
+    /* padding-bottom: %; */
 }
 
 .text-link{
     color:white;
 }
+.main-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin-bottom: 140px; 
+  }
+ 

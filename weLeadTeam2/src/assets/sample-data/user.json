@@ -1,23 +1,23 @@
-       {
-            
-            "usersData": [
-                {
-                    "id": 1,
-                    "email": "michael.lawson@reqres.in",
-                    "first_name": "Michael"
-                    
-                },
-                {
-                    "id": 2,
-                    "email": "lindsay.ferguson@reqres.in",
-                    "first_name": "Lindsay"               
-                    
-                }
-               
-            ],
-            "support": {
-                "url": "https://reqres.in/#support-heading",
-                "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+    {
+        "users": [
+            {
+                "id": 1,
+                "fullname": "fullname",
+                "email": "aristea",
+                "password": "1234"
+            },
+            {
+                "id": 2,
+                "fullname": "fullname",
+                "email": "michael.lawson@reqres.in",
+                "password": "Michael"
+            },
+            {
+                "id": 3,
+                "fullname":"fullname",
+                "email": "lindsay.ferguson@reqres.in",
+                "password": "Lindsay"
             }
-        }
-    
+        ]
+        
+    }

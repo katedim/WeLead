@@ -6,6 +6,7 @@ import { CountdownComponent } from './components/countdown/countdown.component';
 import { StoresListComponent } from './components/stores-list/stores-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { CategoriesComponent } from './categories/categories.component';
 import { AllStoresListComponent } from './components/all-stores-list/all-stores-list.component';
 import { Error404Component } from './components/error-404/error-404.component';
 
@@ -18,6 +19,7 @@ export const routes: Routes = [
   { path: 'stores-list', component: StoresListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  {path: 'categories' , component: CategoriesComponent}
   { path: 'all-stores', component: AllStoresListComponent},
   { path: '**', component: Error404Component }
 ];
