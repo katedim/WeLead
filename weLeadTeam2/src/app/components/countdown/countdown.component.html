@@ -1,6 +1,6 @@
 <div class="main-container" style="background-image: url('../assets/images/countdownBackground.jpg'); ">
 
-  <div style="display: flex; justify-content: center; align-items: center; height: 50vh; margin-top: 50px">
+  <div style="display: flex; justify-content: center; align-items: center; height: 50vh; margin-top: 10px">
     <div *ngIf="deliveryTime">
       <!-- {{ orderTime | date:"HH:mm" }}
       {{ deliveryTime | date:"HH:mm" }}
@@ -11,18 +11,20 @@
     <div style="display: flex; justify-content: center; align-items: center;">
       <ng-template #thenBlock>
         <div class="delivery-info">
-        <p class="mb-4 font-weight-bold text-uppercase">Order will be deliver in</p>
-        <div class="digital-clock-frame">
-          <div class="digital-clock">
-            <span class="digit">{{ minutesLeft }} :</span> 
-            <span class="digit">{{ secondsLeft }}</span>
+          <p class="mb-4 font-weight-bold text-uppercase">Order will be deliver in</p>
+          <div class="digital-clock-frame">
+            <div class="digital-clock">
+              <!-- <span class="digit">{{ minutesLeft }} :</span> 
+            <span class="digit">{{ secondsLeft }}</span> -->
+              <span class="digit">{{ (minutesLeft < 10 ? '0' : '' ) + minutesLeft }} :</span>
+                  <span class="digit">{{ (secondsLeft < 10 ? '0' : '' ) + secondsLeft }}</span>
+            </div>
           </div>
         </div>
-      </div>
 
         <div style="margin-top: 50px ; margin-bottom: 100px">
-          <img src="../assets/images/delivery_truck.jpg" alt="Bouncing Image" class="bouncing-image ; rounded-circle" width="200px"
-            height="180px">
+          <img src="../assets/images/delivery_truck.jpg" alt="Bouncing Image" class="bouncing-image ; rounded-circle"
+            width="200px" height="180px">
         </div>
       </ng-template>
 

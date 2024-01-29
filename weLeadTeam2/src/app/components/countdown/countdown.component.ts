@@ -49,8 +49,8 @@ export class CountdownComponent {
 
 
     // only for testing!!! remove it later //
-    // this.minutesLeft =2;
-    // this.secondsLeft = 0;
+    this.minutesLeft =0;
+    this.secondsLeft = 5;
     // only for testing end
 
     // this.showingMin = this.minutesLeft - 1;
