@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FoodCategoriesService } from '../../../services/food-categories.service';
 
@@ -11,23 +11,12 @@ import { FoodCategoriesService } from '../../../services/food-categories.service
   styleUrl: './search.component.css'
 })
 export class SearchComponent {
-  form!: FormGroup
-  foodCategories = inject(FoodCategoriesService)
+  @Output() search = new EventEmitter<string>();
 
-  ngOnInit(){
-    this.setFormValues();
-
-  }
-
-  setFormValues(){
-    this.form = new FormGroup({
-      searchData: new FormControl("")
-    });
-
-  }
-onSubmit(){
-console;console.log(this.form.get("searchData")?.value);
-
-  }
+ onInputChange(event: Event) {
+  const inputValue = (event.target as HTMLInputElement).value;
+  console.log('Input Value:', inputValue);
+  this.search.emit(inputValue);
+}
 }
 

@@ -14,9 +14,6 @@ export class FoodCategoriesService {
   getFoodCategories(){
     return this.http.get<FoodCategories[]>(this.endpointurl);
   }
-
 }
 
-// getFoodCategories(): Observable<FoodCategories[]>{
-//   return this.http.get<FoodCategories[]>(this.endpointurl);
-// }
+

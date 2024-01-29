@@ -1,0 +1,22 @@
+/* Add this to your CSS file or in the style section of your component */
+.container {
+    max-width: 1200px; /* Adjust the max-width based on your design preference */
+  }
+  
+  .card {
+    transition: transform 0.3s; /* Optional: Add a smooth hover effect */
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Optional: Scale up on hover */
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa; /* Adjust the background color as needed */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow to the header */
+  }
+  
