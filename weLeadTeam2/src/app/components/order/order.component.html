@@ -16,9 +16,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let order of orderData.orders[0].products; let i = index">
-                <td>{{ order?.name }}</td>
-                <td>{{ order?.price }}</td>
+              <tr *ngFor="let order of orderData2; let i = index">
+                <td>({{order?.quantity}}) {{ order?.name }}</td>
+                <td>{{ order?.total }}</td>
                 <td><img [src]="order?.avatar" alt="{{ order?.name }} Avatar" class="img-fluid" width="50" height="50"></td>
               </tr>
             </tbody>
@@ -38,3 +38,4 @@
     </div>
   </div>
 </div>
+

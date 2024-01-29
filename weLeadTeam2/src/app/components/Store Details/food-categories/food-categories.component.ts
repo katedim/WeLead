@@ -8,6 +8,7 @@ import { CartService } from '../../../services/cart.service';
 import { CartComponent } from '../cart/cart.component';
 import { ProductFilterService } from '../../../services/product-filter.service';
 import { Router } from '@angular/router';
+import { StoresListService } from '../../../services/stores-list.service';
 
 
 @Component({
@@ -30,12 +31,19 @@ addedProduct: any[] = [];
 foodCategoriesService: FoodCategoriesService = inject(FoodCategoriesService)
 cartService: CartService = inject(CartService) 
 filterService: ProductFilterService = inject(ProductFilterService)
-
+storeListservice = inject(StoresListService);
+selectedStore: any;
 
 
 
 ngOnInit() {
-this.loadFoodCategories();}
+this.loadFoodCategories();
+this.storeListservice.listenForData().subscribe({
+  next: response => {
+    this.selectedStore = response.categoryName;
+  }
+})
+}
 loadFoodCategories() {
   this.foodCategoriesService.getFoodCategories().pipe(
     map((response: any) => response.products)

@@ -62,4 +62,9 @@ export class AllStoresListComponent implements OnInit {
       this.storesByCategory = this.allStoresList;
     }
   }
+
+  getStoreSelect(storeName: any) {
+    console.log(storeName);
+    this.service.publishData({ categoryName: storeName });
+  }
 }

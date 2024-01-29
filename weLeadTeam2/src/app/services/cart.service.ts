@@ -12,7 +12,7 @@ import { FoodCategories } from '../interfaces/food-categories';
 export class CartService {
 
 constructor(private http: HttpClient) {}
-endpointurl = "../assets/sample-data/store.json"
+endpointurl = "../assets/sample-data/stores.json"
 items: any [] = [] 
 
 
