@@ -59,7 +59,7 @@
                 <p class="card-text">In case you're craving for {{store.category}}</p>
                 <p class="card-text">Our address for pick up: {{store.address}}</p>
                
-                <div *ngIf="store?.open">  <button routerLink="/food-categories" id="orderButton" class="btn btn-primary">Order here! </button> </div>
+                <div *ngIf="store?.open">  <button routerLink="/food-categories" id="orderButton" class="btn btn-primary" (click)="getStoreSelect(store.name)">Order here! </button> </div>
                 <div *ngIf="!store?.open">  <button type="button" class="btn btn-danger" disabled> Sorry we're closed :(  </button></div>
             </div>
         </div>

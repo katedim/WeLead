@@ -5,6 +5,7 @@ import { Order } from '../../interfaces/order';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CountdownService } from '../../services/countdown.service';
 import { HeaderComponent } from "../header/header.component";
+import { CartService } from '../../services/cart.service';
 
 @Component({
     selector: 'app-order',
@@ -16,9 +17,11 @@ import { HeaderComponent } from "../header/header.component";
 export class OrderComponent {
   ordersService = inject(OrderService);
   orderData: any;
+  orderData2: any;
   hasLoaded = false;
   message = 'test';
   service = inject(CountdownService);
+  cartService = inject(CartService);
 
   ngOnInit() {
     this.ordersService.getOrder()
@@ -30,18 +33,28 @@ export class OrderComponent {
         }
       })
 
+      this.orderData2 = this.cartService.getCartData();
   }
 
   getTotal() {
     let total = 0;
-    this.orderData.orders[0].products.forEach(function (value: any) {
-     total+=value.price;
+
+
+    this.orderData2.forEach(function (value: any) {
+     total+=value.price * value.quantity;
     })
+
+    this.orderData2.forEach(function (value: any) {
+      value.total = value.price * value.quantity;
+      value.total = Math.round(value.total * 100) / 100;
+    })
+
+    total = Math.round(total * 100) / 100;
     return total;
   }
 
   checkout() {
-    this.service.publishData({ productsInfo: this.orderData.orders[0].products });
+    this.service.publishData({ productsInfo: this.orderData2 });
   }
 
 }

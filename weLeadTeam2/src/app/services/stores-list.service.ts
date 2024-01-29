@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { StoresList } from '../interfaces/stores-list';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,8 @@ export class StoresListService {
 
 
   constructor() { }
+
+  private publisher = new BehaviorSubject<any>(null);
 
   getStoresList() {
     //return this.http.get<StoresList[]>(this.endpointUrl);
@@ -31,5 +34,13 @@ export class StoresListService {
   getStoresLogo() {
 
     return this.http.get(this.endpointUrlLogo);
+  }
+
+  publishData(data: any) {
+    this.publisher.next(data);
+  }
+
+  listenForData(): Observable<any> {
+    return this.publisher.asObservable();
   }
 }
