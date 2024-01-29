@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from "rxjs";
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CountdownService {
+export class PublicerService {
 
   constructor() { }
-
   private publisher = new BehaviorSubject<any>(null);
   
 
@@ -15,11 +14,7 @@ export class CountdownService {
     console.log('call publishData');
     this.publisher.next(data);
   }
-     
-  // listenForData() {
-  //   console.log('call listenForData');
-  //   return this.publisher.asObservable();
-  // }
+
   listenForData(): Observable<any> {
     console.log('call listenForData');
     return this.publisher.asObservable();

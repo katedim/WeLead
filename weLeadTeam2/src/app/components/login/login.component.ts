@@ -5,6 +5,7 @@ import { Route, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FormControl, FormGroup, FormBuilder, ReactiveFormsModule, Validators, FormsModule, FormControlName } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
 import { HttpClient } from '@angular/common/http';
+import { PublicerService } from '../../services/publicer.service';
 
 
 @Component({
@@ -19,6 +20,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 
   usersService = inject(UsersService);
+  publishService = inject(PublicerService)
 
   loginform!: FormGroup
 
@@ -45,6 +47,7 @@ export class LoginComponent implements OnInit {
           if (a.email === this.loginform.value.email && a.password === this.loginform.value.password) {
             console.log("ok");
             this.userfound = true;
+            this.publishService.publishData("user login");
             this.router.navigate(["/all-stores"]);
             return true;
           }

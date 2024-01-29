@@ -46,15 +46,15 @@
 </table>
 <div *ngIf="storesByCategory && storesByCategory.length > 0" class="row">
     <div *ngFor="let store of storesByCategory; let i = index" class="col-md-4">
-        <div class="card mb-4">
+        <div class="card mb-4" style="height: 600px;">
             <div *ngIf="storesLogo && storesLogo.length > 0">
                 <div *ngFor="let logo of storesLogo; let i = index">
                     <div *ngIf="store.id==logo.id">
-                        <img src="{{logo.avatar}}" class="card-img-top" alt="...">
+                        <img src="{{logo.avatar}}" class="card-img-top" alt="..." height="200px">
                     </div>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="margin-top: 50px;">
                 <h5 class="card-title">{{store.name}}</h5>
                 <p class="card-text">In case you're craving for {{store.category}}</p>
                 <p class="card-text">Our address for pick up: {{store.address}}</p>
