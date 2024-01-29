@@ -1,37 +1,73 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, Pipe, PipeTransform, inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output, Pipe, PipeTransform, inject } from '@angular/core';
 import { FoodCategoriesService } from '../../../services/food-categories.service';
-import { ButtonClickerComponent } from '../button-clicker/button-clicker.component';
-import { ButtonClickerCounterComponent } from '../button-clicker-counter/button-clicker-counter.component';
 import { SearchComponent } from '../search/search.component';
 import { FoodCategories } from '../../../interfaces/food-categories';
+import { map } from 'rxjs';
+import { CartService } from '../../../services/cart.service';
+import { CartComponent } from '../cart/cart.component';
+import { ProductFilterService } from '../../../services/product-filter.service';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-food-categories',
   standalone: true,
-  imports: [CommonModule,ButtonClickerComponent,ButtonClickerCounterComponent,SearchComponent],
+  imports: [CommonModule,SearchComponent,CartComponent],
   templateUrl: './food-categories.component.html',
   styleUrl: './food-categories.component.css',
  
 })
 export class FoodCategoriesComponent implements OnInit{
 
-// categories: FoodCategories[]=[]
-categories:any;
+
+@Output() cartData: EventEmitter<any> = new EventEmitter();
+
+categories: FoodCategories[] = []
+filteredCategories: FoodCategories[] = [];
+addedProduct: any[] = [];
+
 foodCategoriesService: FoodCategoriesService = inject(FoodCategoriesService)
+cartService: CartService = inject(CartService) 
+filterService: ProductFilterService = inject(ProductFilterService)
 
-  ngOnInit() {
-    this.foodCategoriesService.getFoodCategories().subscribe({
-      next: (response) => {
-        console.log(response)
-        this.categories = response;
-      },
-    });
+
+
+
+ngOnInit() {
+this.loadFoodCategories();}
+loadFoodCategories() {
+  this.foodCategoriesService.getFoodCategories().pipe(
+    map((response: any) => response.products)
+  ).subscribe({
+    next: response => {
+      console.log(response);
+      this.categories = response;
+      this.filteredCategories = [...response];
+    },
+    error: error => {
+      console.error(error);
+    }
+  });
+}
+
+filterProducts(query: string) {
+  this.filteredCategories = this.filterService.filterProducts(this.categories, query);
+}
+
+
+addToCart(category: FoodCategories) {
+  category.quantity = (category.quantity || 0) + 1;
+  this.cartService.addtoCart(category);
+  this.cartData.emit(this.cartService.getCartData());
+}
+
+removeFromCart(category: FoodCategories) {
+  if (category.quantity && category.quantity > 0) {
+    category.quantity--;
+    this.cartService.removeOneFromCart(category);
   }
-
-
-
+}
 
 }
 
@@ -40,6 +76,64 @@ foodCategoriesService: FoodCategoriesService = inject(FoodCategoriesService)
 
 
 
+
+
+
+
+
+
+
+// goToOrder() {
+//   console.log('goToOrder method called');
+//   this.router.navigate(['/order']);
+// }
+
+    //   addToCart(categories: any){
+    //     this.cartService.addToCart(categories);
+    //   }      
+
+    //   removeFromCart(categories: any) {
+    //     this.cartService.deleteFromCart(categories);
+
+    // }
+
+    // reducefromcart(categories: any){
+    //   this.cartService.decrementQuantity(categories);
+    // }
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //   )subscribe({
+    //   next: (response) => {
+    //     console.log(response)
+    //     this.categories = response;
+    //   },
+    // });
   
 
   // ngOnInit() {
@@ -50,13 +144,6 @@ foodCategoriesService: FoodCategoriesService = inject(FoodCategoriesService)
   //     },
   //   });
   // }}
-
-
-
-
-
-
-
   
 // @Pipe({name:'group'})
 
@@ -77,13 +164,6 @@ foodCategoriesService: FoodCategoriesService = inject(FoodCategoriesService)
 // );
 //   }
 // }
-
-
-
-
-
-
-
 
 // this.uniqueCategories = Array.from(new Set(this.categories.products.map((product: { category: any }) => product.category)));
 // this.uniquePrice = Array.from(new Set(this.categories.products.map((product: { name: any, price:any }) => product.name)));

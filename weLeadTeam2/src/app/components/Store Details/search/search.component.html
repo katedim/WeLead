@@ -1,4 +1,2 @@
-<form [formGroup]="form" (submit)="onSubmit()">
-<input formControlName="searchData">
-<button class="btn btn-danger">Search</button>
-</form>
+<input type="text" (input)="onInputChange($event)">
+
