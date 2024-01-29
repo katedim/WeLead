@@ -1,11 +1,11 @@
 <!-- <div>{{users|json}}</div> -->
-<div class="container">
+<div class="container text-center">
   <form [formGroup]="signupForm" (ngSubmit)="signUp()">
-    <p class="p">Please register! </p>
+    <p class="p ; text-center">Please register! </p>
     <div class="mb-3">
-      <label style="color: black" for="exampleInputEmail1" class="form-label"> Full Name </label> <br>
+      <label style="color: black" for="exampleInputUser1" class="form-label"> Full Name </label> <br>
       <input placeholder="e.g. User User" formControlName="fullname" type="text" class="form-control"
-        id="exampleInputEmail1" aria-describedby="emailHelp">
+        id="exampleInputUser1" aria-describedby="emailHelp">
         <span class="text-danger" *ngIf="signupForm.get('fullname')?.hasError('required') && signupForm.get('fullname')?.touched">Required</span> 
     </div>
     <div class="mb-3">
@@ -25,8 +25,9 @@
       <label style="color: black" for="exampleInputPassword1" class="form-label"> Confirm Password </label> <br>
       <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
     </div> -->
-    <button type="submit" class="btn btn-primary mb-2 ">Sign up</button>
+    <button type="submit" class="btn btn-secondary mb-2 ">Sign up</button>
    
   </form>
-  <a style="color: black;  margin-top: 10px;" routerLink="/login">already registered? please login</a>
+  <a style="color: rgb(141, 147, 217);  margin-top: 10px; text-align: center;" routerLink="/login">Already registered? Please login</a>
+         
   </div>
