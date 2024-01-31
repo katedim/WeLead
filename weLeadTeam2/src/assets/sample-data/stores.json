@@ -11,6 +11,7 @@
                 "category": "BURGERS",
                 "price" : 4.99,
                 "avatar": "assets/images/CardImages/Bacon.jpg"
+
             },
             {
                 "id": "2",
@@ -18,6 +19,8 @@
                 "category": "BURGERS",
                 "price" : 3.99,
                 "avatar": "assets/images/CardImages/ChickenBurger.jpg"
+              
+
             },
             {
                 "id": "3",
@@ -25,6 +28,9 @@
                 "category": "BURGERS",
                 "price" : 2.99,
                 "avatar": "assets/images/CardImages/Deluxe_Burger.jpg"
+
+              
+
             },
             {
                 "id": "4",
@@ -32,6 +38,9 @@
                 "category": "BURGERS",
                 "price" : 2.79,
                 "avatar": "assets/images/CardImages/ChickenBurger.jpg"
+
+                
+
             },
             {
                 "id": "5",
@@ -39,6 +48,9 @@
                 "category": "NUGGETS",
                 "price" : 3.99,
                 "avatar": "assets/images/CardImages/nuggets.jpg"
+
+               
+
             },
             {
                 "id": "6",
@@ -46,6 +58,9 @@
                 "category": "SALADS",
                 "price" : 4.50,
                 "avatar": "assets/images/CardImages/salad.jpg"
+
+                
+
             },
             {
                 "id": "7",
@@ -53,6 +68,9 @@
                 "category": "SALADS",
                 "price" : 4.50,
                 "avatar": "assets/images/CardImages/salad.jpg"
+
+                
+
             },
             {
                 "id": "8",
@@ -60,6 +78,9 @@
                 "category": "SALADS",
                 "price" : 2.50,
                 "avatar": "assets/images/CardImages/SaladSide.jpg"
+
+               
+
             },
             {
                 "id": "9",
@@ -67,6 +88,9 @@
                 "category": "FRIES_&_SIDES",
                 "price" : 0.99,
                 "avatar": "assets/images/CardImages/rings.jpg"
+
+                
+
             },
             {
                 "id": "10",
@@ -74,6 +98,8 @@
                 "category": "FRIES_&_SIDES",
                 "price" : 1.20,
                 "avatar": "assets/images/CardImages/fries.jpg"
+
+
             }
         ]
     },
@@ -88,42 +114,48 @@
                 "name": "Pork Noodles with teriyaki",
                 "category": "NOODLES",
                 "price" : 7.20,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "12",
                 "name": "Chicken Egg Noodles with sweet chili",
                 "category": "NOODLES",
                 "price" : 8.20,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "13",
                 "name": "Beef Rice Noodles with cantonese",
                 "category": "NOODLES",
                 "price" : 7.20,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "14",
                 "name": "Shrimp White Rice with Coconut Curry",
                 "category": "RICE",
                 "price" : 8.20,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "15",
                 "name": "Mushroom Brown Rice with satay",
                 "category": "RICE",
                 "price" : 7.20,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "16",
                 "name": "Mixed ingredients with pineapple, brocoli, baby corn and black mushrooms",
                 "category": "OTHER",
                 "price" : 5.20,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             }
         ]
     },
@@ -138,42 +170,48 @@
                 "name": "Cinnamon Donut",
                 "category": "DONUT",
                 "price" : 2.20,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "18",
                 "name": "Donut Bavaria",
                 "category": "DONUT",
                 "price" : 1.99,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "19",
                 "name": "Blackberry Cronut",
                 "category": "CRONUT",
                 "price" : 1.50,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "20",
                 "name": "Nanou Burger",
                 "category": "BURGER",
                 "price" : 4.30,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "21",
                 "name": "Donut Delizioso",
                 "category": "DONUT",
                 "price" : 2.50,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "22",
                 "name": "Donut Oreo",
                 "category": "DONUT",
                 "price" : 1.99,
-                "avatar": ""
+                "avatar": "assets/images/burger.PNG"
+
             }
         ]
     }
