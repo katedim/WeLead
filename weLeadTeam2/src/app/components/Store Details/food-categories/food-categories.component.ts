@@ -9,6 +9,7 @@ import { CartComponent } from '../cart/cart.component';
 import { ProductFilterService } from '../../../services/product-filter.service';
 import { Router } from '@angular/router';
 import { StoresListService } from '../../../services/stores-list.service';
+import { StoresList } from '../../../interfaces/stores-list';
 
 
 @Component({
@@ -20,48 +21,57 @@ import { StoresListService } from '../../../services/stores-list.service';
  
 })
 export class FoodCategoriesComponent implements OnInit{
+[x: string]: any;
 
 
 @Output() cartData: EventEmitter<any> = new EventEmitter();
 
-categories: FoodCategories[] = []
-filteredCategories: FoodCategories[] = [];
+categories: StoresList[] = []
+filteredCategories: StoresList[] = [];
 addedProduct: any[] = [];
+FilteredProduct: any[] =[];
 
 foodCategoriesService: FoodCategoriesService = inject(FoodCategoriesService)
 cartService: CartService = inject(CartService) 
 filterService: ProductFilterService = inject(ProductFilterService)
 storeListservice = inject(StoresListService);
 selectedStore: any;
+allStores: any;
 
 
 
 ngOnInit() {
-this.loadFoodCategories();
 this.storeListservice.listenForData().subscribe({
   next: response => {
-    this.selectedStore = response.categoryName;
+    this.selectedStore = response;
   }
 })
-}
-loadFoodCategories() {
-  this.foodCategoriesService.getFoodCategories().pipe(
-    map((response: any) => response.products)
-  ).subscribe({
-    next: response => {
-      console.log(response);
-      this.categories = response;
-      this.filteredCategories = [...response];
-    },
-    error: error => {
-      console.error(error);
-    }
-  });
+this.loadFoodCategories();
 }
 
-filterProducts(query: string) {
-  this.filteredCategories = this.filterService.filterProducts(this.categories, query);
+
+loadFoodCategories() {
+  this.foodCategoriesService.getFoodCategories().subscribe(
+    {
+      next: response => {
+        this.allStores = response;
+        console.log(this.selectedStore);
+        console.log((this.selectedStore?.categoryName));
+
+        this.addedProduct = [].concat(...this.allStores
+          .filter((store: { name: any; }) => store.name === this.selectedStore.categoryName)
+          .map((store: { products: any[] }) => store.products));
+
+        console.log(this.addedProduct);
+
+        this.addedProduct.forEach(item => {
+          item.subscribe();
+        });
+      }
+    }
+  );
 }
+
 
 
 addToCart(category: FoodCategories) {

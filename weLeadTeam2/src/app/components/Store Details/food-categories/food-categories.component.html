@@ -1,21 +1,30 @@
 <!-- Τhe image -->
-<img src="../assets/images/Bg.jpg" class="img-fluid" alt="..." />
-<div class="container"><p></p></div>
-
-
-<!-- Το search bar και το cart -->
-<div class="header">
-  <app-search (search)="filterProducts($event)"></app-search>
+<div class="fixed-image">
+  <img src="../assets/images/McDonalds.jpg" class="img-fluid" alt="..." />
+  <div class="header">
+    <!-- <app-search (search)="filterProducts($event)"></app-search> -->
   <app-cart></app-cart>
+  </div>
 </div>
 
+
+<!--  το serach -->
+<div class="header">
+  <!-- <app-search (search)="filterProducts($event)"></app-search> -->
+</div>
+
+
 <!-- Οι κάρτες των προιόντων -->
-@for (categories of filteredCategories; track $index) {
 <div class="container mt-4">
   <div class="row">
+
+
+@for (categories of addedProduct; track $index) {
+
+ 
     <div class="col-md-6 mb-4">
-      <div class="card h-100 shadow-sm">
-        <!-- <img src="..." class="img-fluid rounded-start" alt="..."> -->
+      <div class="card h-100 shadow-sm"> 
+        <img src="{{categories.avatar}}" class="img-fluid rounded-start" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ categories.name }}</h5>
           <p class="card-text">{{ categories.price }}</p>
@@ -27,7 +36,10 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+ 
 
-}
+}</div> 
+</div> 
+
+
+

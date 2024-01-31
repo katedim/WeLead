@@ -10,70 +10,96 @@
                 "name": "Big Mac",
                 "category": "BURGERS",
                 "price" : 4.99,
-                "avatar": "assets/images/burger.PNG"
+                "avatar": "assets/images/CardImages/Bacon.jpg"
+
             },
             {
                 "id": "2",
                 "name": "Crispy McBacon",
                 "category": "BURGERS",
                 "price" : 3.99,
-                "avatar": "assets/images/burger.PNG"
+                "avatar": "assets/images/CardImages/ChickenBurger.jpg"
+              
+
             },
             {
                 "id": "3",
                 "name": "Deluxe Burger",
                 "category": "BURGERS",
                 "price" : 2.99,
-                "avatar": "assets/images/burger.PNG"
+                "avatar": "assets/images/CardImages/Deluxe_Burger.jpg"
+
+              
+
             },
             {
                 "id": "4",
                 "name": "Single Big Tasty Chicken Bacon",
                 "category": "BURGERS",
                 "price" : 2.79,
-                "avatar": "assets/images/burger.PNG"
+                "avatar": "assets/images/CardImages/ChickenBurger.jpg"
+
+                
+
             },
             {
                 "id": "5",
                 "name": "Chicken McNuggets",
                 "category": "NUGGETS",
                 "price" : 3.99,
-                "avatar": "assets/images/burger.PNG"
+                "avatar": "assets/images/CardImages/nuggets.jpg"
+
+               
+
             },
             {
                 "id": "6",
                 "name": "Caesar Salad with crispy chicken",
                 "category": "SALADS",
                 "price" : 4.50,
-                "avatar": "assets/images/burger.PNG"
+                "avatar": "assets/images/CardImages/salad.jpg"
+
+                
+
             },
             {
                 "id": "7",
                 "name": "Caesar Salad with grilled chicken",
                 "category": "SALADS",
                 "price" : 4.50,
-                "avatar": "assets/images/burger.PNG"
+                "avatar": "assets/images/CardImages/salad.jpg"
+
+                
+
             },
             {
                 "id": "8",
                 "name": "Side Salad",
                 "category": "SALADS",
                 "price" : 2.50,
-                "avatar": "assets/images/burger.PNG"
+                "avatar": "assets/images/CardImages/SaladSide.jpg"
+
+               
+
             },
             {
                 "id": "9",
                 "name": "Onion Rings",
                 "category": "FRIES_&_SIDES",
                 "price" : 0.99,
-                "avatar": "assets/images/burger.PNG"
+                "avatar": "assets/images/CardImages/rings.jpg"
+
+                
+
             },
             {
                 "id": "10",
                 "name": "Deluxe Fries",
                 "category": "FRIES_&_SIDES",
                 "price" : 1.20,
-                "avatar": "assets/images/burger.PNG"
+                "avatar": "assets/images/CardImages/fries.jpg"
+
+
             }
         ]
     },
@@ -89,6 +115,7 @@
                 "category": "NOODLES",
                 "price" : 7.20,
                 "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "12",
@@ -96,6 +123,7 @@
                 "category": "NOODLES",
                 "price" : 8.20,
                 "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "13",
@@ -103,6 +131,7 @@
                 "category": "NOODLES",
                 "price" : 7.20,
                 "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "14",
@@ -110,6 +139,7 @@
                 "category": "RICE",
                 "price" : 8.20,
                 "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "15",
@@ -117,6 +147,7 @@
                 "category": "RICE",
                 "price" : 7.20,
                 "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "16",
@@ -124,6 +155,7 @@
                 "category": "OTHER",
                 "price" : 5.20,
                 "avatar": "assets/images/burger.PNG"
+
             }
         ]
     },
@@ -139,6 +171,7 @@
                 "category": "DONUT",
                 "price" : 2.20,
                 "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "18",
@@ -146,6 +179,7 @@
                 "category": "DONUT",
                 "price" : 1.99,
                 "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "19",
@@ -153,6 +187,7 @@
                 "category": "CRONUT",
                 "price" : 1.50,
                 "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "20",
@@ -160,6 +195,7 @@
                 "category": "BURGER",
                 "price" : 4.30,
                 "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "21",
@@ -167,6 +203,7 @@
                 "category": "DONUT",
                 "price" : 2.50,
                 "avatar": "assets/images/burger.PNG"
+
             },
             {
                 "id": "22",
@@ -174,6 +211,7 @@
                 "category": "DONUT",
                 "price" : 1.99,
                 "avatar": "assets/images/burger.PNG"
+
             }
         ]
     }
